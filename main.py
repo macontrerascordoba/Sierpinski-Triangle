@@ -1,5 +1,61 @@
 import turtle
 import random
+import time
+
+
+##################################
+#								 #
+#			User Inputs	 		 #			More input value checks to be added to the while loops
+#								 #
+##################################
+
+points = 5000
+speed = 50
+
+# Choosing number of dots
+
+points = input("How many dots do you want me to draw: (Default = 5000)  ->  ")
+
+while True:	
+
+	if points == "":
+		points = 5000
+		break
+	else:
+		points = int(points)
+		break
+
+print("\nPerfect, I'm going to draw ", points, " points\n\n")
+
+
+# Choosing speed
+
+speed = input("At what speed do you me want to move: (1 - Slowest, 10 - Fastest, 0 (default) - Max Speed)  ->  ")
+
+while True:
+
+	if speed == "" or speed < 0 or speed > 10:
+		speed = 0
+		break
+	else:
+		speed = int(speed)
+		break
+
+if speed == 0:
+	print("\nOk, I'll go as fast as I can")
+else:
+	print("\nAwesome, I'm going to change my speed to ", speed, " units")
+
+
+print("\n\nEverything set, I will start now")
+
+time.sleep(3)
+
+
+##############################################################################################################################
+
+
+
 
 # Modifying the window name and color
 turtle.title("Sierpinski Triangle")
@@ -10,10 +66,10 @@ s = turtle.getscreen()	# Create and open the turtle screen
 t = turtle.Turtle()		# Asign the turtle to the variable t
 
 # Personalizing the turtle
-t.fillcolor("white")
-t.pencolor("white")
+t.color("white", "white")
 t.shapesize(1,1,1)
-t.speed(50)
+t.speed(speed)
+
 
 # Drawing the triangle apices
 
@@ -53,7 +109,7 @@ t.pendown()
 t.dot(1)
 t.penup()
 
-for i in range(5000):
+for i in range(points):
 
 	# Choosing one of the 3 starting points
 
@@ -78,6 +134,12 @@ for i in range(5000):
 
 	last_point = midpoint	# Asign the new point as the last_point
 	
+t.goto(a)
+t.pendown()
+t.goto(b)
+t.goto(c)
+t.goto(a)
+t.penup()
 
 t.goto(400, 400)	# Move the turtle outside of the triangle
 
