@@ -14,15 +14,21 @@ speed = 50
 
 # Choosing number of dots
 
-points = input("How many dots do you want me to draw: (Default = 5000)  ->  ")
+points = input("How many dots do you want me to draw: (Min = 1, Default = 5000)  ->  ")
 
 while True:	
 
 	if points == "":
-		points = 5000
-		break
-	else:
+			points = 5000
+			break
+
+	try:
 		points = int(points)
+	except:
+		points = input("\nIt has to be a number. Please try again:  ->  ")
+	else:
+		if points < 1:
+			points = 1
 		break
 
 print("\nPerfect, I'm going to draw ", points, " points\n\n")
@@ -34,11 +40,17 @@ speed = input("At what speed do you me want to move: (1 - Slowest, 10 - Fastest,
 
 while True:
 
-	if speed == "" or speed < 0 or speed > 10:
+	if speed == "":
 		speed = 0
 		break
-	else:
+
+	try:
 		speed = int(speed)
+	except:
+		speed = input("\nIt has to be a number. Please try again:  ->  ")
+	else:
+		if speed < 0 or speed > 10:
+			speed = 0
 		break
 
 if speed == 0:
@@ -53,8 +65,6 @@ time.sleep(3)
 
 
 ##############################################################################################################################
-
-
 
 
 # Modifying the window name and color
@@ -142,6 +152,5 @@ t.goto(a)
 t.penup()
 
 t.goto(400, 400)	# Move the turtle outside of the triangle
-
 
 turtle.done()	#Keep the window from closing. If you delete this line the screen will close as soon as it finish
