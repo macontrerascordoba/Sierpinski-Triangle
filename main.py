@@ -10,7 +10,7 @@ import time
 ##################################
 
 points = 5000
-speed = 50
+speed = 0
 
 # Choosing number of dots
 
@@ -107,10 +107,17 @@ t.penup()
 
 y = random.randint(-150, 150) # y coordinate between the base and the top of the triangle
 
-x_left_limit = int((y - 150) / 2)			# The line that connect the top and left apices is: y = 2x + 150
-x_right_limit =  int((y - 150) / -2)		# The line that connect the top and right apices is: y = -2x + 150
+# x_left_limit = int((y - 150) / 2)			# The line that connect the top and left apices is: y = 2x + 150
+# x_right_limit =  int((y - 150) / -2)		# The line that connect the top and right apices is: y = -2x + 150
 
-x = random.randint(x_left_limit, x_right_limit)	# x coordinate between calculated limits
+# x = random.randint(x_left_limit, x_right_limit)	# x coordinate between calculated limits
+
+side = random.randint(0, 1)	# Left side and right side respectively
+
+if side == 0:
+	x = (y - 150) / 2
+else:
+	x = (y - 150) / -2
 
 last_point = (x, y)
 
