@@ -1,6 +1,7 @@
 import turtle
 import random
 import time
+import os
 
 
 ##################################
@@ -11,6 +12,8 @@ import time
 
 points = 5000
 speed = 0
+
+os.system('cls' if os.name == 'nt' else 'clear')
 
 # Choosing number of dots
 
@@ -36,7 +39,7 @@ print("\nPerfect, I'm going to draw ", points, " points\n\n")
 
 # Choosing speed
 
-speed = input("At what speed do you me want to move: (1 - Slowest, 10 - Fastest, 0 (default) - Max Speed)  ->  ")
+speed = input("At what speed do you me want to move: (1 - Slowest, 10 - Fastest, 0 (default) - Almost Instant Movement)  ->  ")
 
 while True:
 
@@ -90,17 +93,17 @@ c = (150, -150)
 t.penup()
 t.goto(a)
 t.pendown()
-t.dot(1)
+t.dot(2)
 
 t.penup()
 t.goto(b)
 t.pendown()
-t.dot(1)
+t.dot(2)
 
 t.penup()
 t.goto(c)
 t.pendown()
-t.dot(1)
+t.dot(2)
 
 # Drawing the first random point within the triangle
 t.penup()
@@ -123,7 +126,7 @@ last_point = (x, y)
 
 t.goto(last_point)
 t.pendown()
-t.dot(1)
+t.dot(2)
 t.penup()
 
 for i in range(points):
@@ -146,7 +149,7 @@ for i in range(points):
 
 	t.goto(midpoint)
 	t.pendown()
-	t.dot(1)
+	t.dot(2)
 	t.penup()
 
 	last_point = midpoint	# Asign the new point as the last_point
@@ -161,3 +164,5 @@ t.penup()
 t.goto(400, 400)	# Move the turtle outside of the triangle
 
 turtle.done()	#Keep the window from closing. If you delete this line the screen will close as soon as it finish
+
+os.system('cls' if os.name == 'nt' else 'clear')
