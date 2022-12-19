@@ -1,7 +1,4 @@
-import turtle
-import random
-import time
-import os
+import turtle, random, time, os
 
 
 ##################################
@@ -14,6 +11,7 @@ points = 5000
 speed = 0
 
 os.system('cls' if os.name == 'nt' else 'clear')
+print("Sierpinski Triangle\n")
 
 # Choosing number of dots
 
@@ -82,31 +80,18 @@ t = turtle.Turtle()		# Asign the turtle to the variable t
 t.color("white", "white")
 t.shapesize(1,1,1)
 t.speed(speed)
+t.penup()
 
 
 # Drawing the triangle apices
 
-a = (0,150)
-b = (-150, -150)
-c = (150, -150)
+apices = [(0,150), (-150, -150), (150, -150)]
 
-t.penup()
-t.goto(a)
-t.pendown()
-t.dot(2)
-
-t.penup()
-t.goto(b)
-t.pendown()
-t.dot(2)
-
-t.penup()
-t.goto(c)
-t.pendown()
-t.dot(2)
+for apex in apices:
+	t.goto(apex)
+	t.dot(2)
 
 # Drawing the first random point within the triangle
-t.penup()
 
 y = random.randint(-150, 150) # y coordinate between the base and the top of the triangle
 
@@ -125,40 +110,27 @@ else:
 last_point = (x, y)
 
 t.goto(last_point)
-t.pendown()
 t.dot(2)
-t.penup()
 
 for i in range(points):
 
 	# Choosing one of the 3 starting points
 
-	chooser = random.randint(1, 3)
-
-	if chooser == 1:
-		chosen = a
-	elif chooser == 2:
-		chosen = b
-	else:
-		chosen = c
-
+	apex = random.choice(apices)
 
 	# Calculating midpoint between chosen and last_point		[ M = ((x1 + x2) / 2), (y1 + y2) / 2) ]
 
-	midpoint = ( (chosen[0] + last_point[0]) / 2 , (chosen[1] + last_point[1]) / 2 )
+	midpoint = ( (apex[0] + last_point[0]) / 2 , (apex[1] + last_point[1]) / 2 )
 
 	t.goto(midpoint)
-	t.pendown()
 	t.dot(2)
-	t.penup()
 
 	last_point = midpoint	# Asign the new point as the last_point
 	
-t.goto(a)
+t.goto(apices[-1])
 t.pendown()
-t.goto(b)
-t.goto(c)
-t.goto(a)
+for apex in apices:
+	t.goto(apex)
 t.penup()
 
 t.goto(400, 400)	# Move the turtle outside of the triangle
