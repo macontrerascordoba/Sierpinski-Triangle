@@ -8,7 +8,7 @@ This method consists in drawing the 3 apices of a triangle and then drawing a ra
 1. Take the last point drawn and randomly select one of the apices
 2. Draw a point in the middle of the two selected.
 
-If you repeat this rules enough times you can see how the Sierpinski's triangle if being constructed.
+If you repeat this rules enough times you can see how the Sierpinski's triangle is being constructed.
 
 [Here you have the visual explanation](https://www.youtube.com/watch?v=Fgu5-3ihVVI) I used to do this in case you didn't understand it well enough.
 
